@@ -13,30 +13,82 @@ import { Storage} from './pages/storage/storage.jsx'
 import { Stock} from './pages/Stock/Stock.jsx'
 import SelectDinamic from './components/selectPrueba/SelectDinamic.jsx'
 import Dashboard from './pages/Dashboard/Dashboard.jsx'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes ,createHashRouter,RouterProvider} from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home/Home.jsx'
+
+
+const router=createHashRouter([
+  {
+    path:'/',
+    element:<Home/>
+  },
+  {
+    path:'/Productos',
+    element:<Productos/>
+  },
+  {
+    path:'/Clasificacion',
+    element:<Clasificacion/>
+  },
+  {
+    path:'/Categorias',
+    element:<TpCategorias/>
+  },
+  {
+    path:'/Generos',
+    element:<Generos/>
+  },
+  {
+    path:'/Colores',
+    element:<Colores/>
+  },
+  {
+    path:'/Usos',
+    element:<Usos/>
+  },
+  {
+    path:'/Precios',
+    element:<Precios/>
+  },
+  {
+    path:'/Tallas',
+    element:<Tallas/>
+  },
+  {
+    path:'/Stock',
+    element:<Stock/>
+  },
+  {
+    path:'*',
+    element:<p style={{color:'black'}}>NOT FOUND</p>
+  }
+
+])
+
 
 function App() {
   
   return (
     <>
     <Dashboard/>
-    <BrowserRouter>
+    <RouterProvider router={router}/>
+
+    {/* <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/Productos' element={<Productos/>}/>
-        <Route path='/Clasificacion' element={<Clasificacion/>}/>
-        <Route path='/Categorias' element={<TpCategorias/>}/>
-        <Route path='/Generos' element={<Generos/>}/>
-        <Route path='/Colores' element={<Colores/>}/>
-        <Route path='/Usos' element={<Usos/>}/>
-        <Route path='/Precios' element={<Precios/>}/>
-        <Route path='/Tallas' element={<Tallas/>}/>
-        <Route path='/Stock' element={<Stock/>}/>
-        <Route path='*' element={<p style={{color:'black'}}>NOT FOUND</p>}/>
+        <Route path={rutaRaiz+'/'} element={<Home/>}/>
+        <Route path={rutaRaiz+'/Productos'} element={<Home/>}/>
+        <Route path={rutaRaiz+'/Clasificacion'} element={<Home/>}/>
+        <Route path={rutaRaiz+'/Categorias'} element={<Home/>}/>
+        <Route path={rutaRaiz+'/Generos'} element={<Generos/>}/>
+        <Route path={rutaRaiz+'/Colores'} element={<Colores/>}/>
+        <Route path={rutaRaiz+'/Usos'} element={<Usos/>}/>
+        <Route path={rutaRaiz+'/Precios'} element={<Precios/>}/>
+        <Route path={rutaRaiz+'/Tallas'} element={<Tallas/>}/>
+        <Route path={rutaRaiz+'/Stock'} element={<Stock/>}/>
+        <Route path={rutaRaiz+'/*'} element={<p style={{color:'black'}}>NOT FOUND</p>}/>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
       {/* <Storage/> */}
       {/* <Productos/> */}
       {/* <Generos/> */}
